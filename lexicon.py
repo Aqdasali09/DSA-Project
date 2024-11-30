@@ -3,14 +3,16 @@ import nltk
 from collections import defaultdict
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
 
 # Download required NLTK data
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('wordnet')
 
 def preprocess_text(text):
     """
-    Preprocess text: lowercase, remove punctuation, tokenize, and remove stopwords.
+    Preprocess text: lowercase, remove punctuation, tokenize, remove stopwords, and lemmatize.
     """
     if not isinstance(text, str):
         return []
@@ -18,6 +20,13 @@ def preprocess_text(text):
     text = re.sub(r'[^\w\s]', '', text)  # Remove punctuation
     tokens = word_tokenize(text)  # Tokenize
     tokens = [word for word in tokens if word not in stopwords.words('english')]  # Remove stopwords
+
+    # Initialize lemmatizer
+    lemmatizer = WordNetLemmatizer()
+
+    # Lemmatize each token
+    tokens = [lemmatizer.lemmatize(word) for word in tokens]
+
     return tokens
 
 def create_lexicon(data, searchable_fields):
