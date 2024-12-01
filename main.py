@@ -1,6 +1,7 @@
 import pandas as pd
 from lexicon import create_lexicon
 from forward_index import create_forward_index
+from inverted_index import InvertedIndex
 
 # Define searchable fields
 SEARCHABLE_FIELDS = ["lyrics", "album_name", "artists", "name"]
@@ -21,4 +22,15 @@ lexicon_df.to_csv("lexicon.csv", index=False)
 forward_index_df = pd.DataFrame(list(forward_index.items()), columns=["Document ID", "Terms"])
 forward_index_df.to_csv("forward_index.csv", index=False)
 
-print("Lexicon and forward indexing have been saved to CSV files.")
+# Generate inverted index
+inverted_index = InvertedIndex()
+inverted_index.build(forward_index)
+
+# Save inverted index to CSV
+inverted_index.save_to_csv("inverted_index.csv")
+
+# Test inverted index search functionality
+term_to_search = "love"  # Example term to search
+print(f"Documents containing the term '{term_to_search}': {inverted_index.search(term_to_search)}")
+
+print("Lexicon, forward indexing, and inverted indexing have been saved to CSV files.")
