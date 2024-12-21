@@ -1,3 +1,4 @@
+# Main indexing script
 import pandas as pd
 from lexicon import create_lexicon
 from forward_index import create_forward_index
@@ -29,10 +30,5 @@ inverted_index.save_to_barrels("barrels")  # Save barrels to a folder
 
 # Generate the full inverted index CSV
 inverted_index.save_to_csv("inverted_index.csv")
-
-# Search example
-term_to_search = "Love"
-term_to_search = term_to_search.lower()
-print(f"Documents containing the term '{term_to_search}': {inverted_index.search(term_to_search, lexicon)}")
 
 print("Lexicon, forward indexing, inverted indexing, and barrels have been saved to CSV files.")
