@@ -8,9 +8,6 @@ from fuzzywuzzy import process
 # Load lexicon
 lexicon = pd.read_csv("lexicon.csv").set_index("Term")["Word IDs"].to_dict()
 
-# Load songs data
-songs_df = pd.read_csv("songs.csv")
-
 # Hybrid Search Engine Class
 class HybridSearchEngine:
     def __init__(self, inverted_index, lexicon):

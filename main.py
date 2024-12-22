@@ -14,7 +14,7 @@ def preprocess_data():
 
     # Generate lexicon and forward index
     lexicon = create_lexicon(data, SEARCHABLE_FIELDS)
-    forward_index = create_forward_index(data, SEARCHABLE_FIELDS)
+    forward_index, updated_data = create_forward_index(data, SEARCHABLE_FIELDS)
 
     # Save lexicon to CSV
     lexicon_df = pd.DataFrame([(term, word_id) for term, word_id in lexicon.items()], columns=["Term", "Word IDs"])

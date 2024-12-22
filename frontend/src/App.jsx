@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './App.css';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -25,29 +24,42 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Search Engine</h1>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Enter search query"
-      />
-      <button onClick={handleSearch}>Search</button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div className="App min-h-screen bg-gray-100 flex flex-col items-center p-4">
+      <h1 className="text-3xl font-bold mb-6 text-blue-600">Search Engine</h1>
+      
+      <div className="mb-4 w-full max-w-md">
+        <input
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Enter search query"
+          className="p-2 border border-gray-300 rounded w-full mb-2"
+        />
+        <button
+          onClick={handleSearch}
+          className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+        >
+          Search
+        </button>
+      </div>
+
+      {error && <p className="text-red-500">{error}</p>}
+
       {results && (
-        <div>
-          <h2>Results for "{results.query}":</h2>
-          <h3>Final Results:</h3>
-          <ul>
+        <div className="w-full max-w-4xl mt-6">
+          <h2 className="text-xl font-semibold mb-4 text-blue-700">Results for "{results.query}":</h2>
+          
+          <h3 className="text-lg font-semibold text-gray-800">Final Results:</h3>
+          <ul className="list-disc pl-5">
             {results.final_results.map((result, index) => (
-              <li key={index}>{result}</li>
+              <li key={index} className="text-gray-700">{result}</li>
             ))}
           </ul>
-          <h3>Ranked Results:</h3>
-          <ul>
+
+          <h3 className="text-lg font-semibold text-gray-800 mt-4">Ranked Results:</h3>
+          <ul className="list-disc pl-5">
             {results.ranked_results.map(([doc_id, score], index) => (
-              <li key={index}>
+              <li key={index} className="text-gray-700">
                 Document ID: {doc_id}, Score: {score}
               </li>
             ))}

@@ -1,3 +1,4 @@
+import pandas as pd
 from lexicon import preprocess_text
 
 def create_forward_index(data, searchable_fields):
@@ -21,6 +22,7 @@ def create_forward_index(data, searchable_fields):
             all_tokens.extend(preprocess_text(row.get(field, "")))
         
         forward_index[doc_id] = list(set(all_tokens))  # Avoid duplicate tokens
+        row['doc_id'] = doc_id  # Assign doc_id to the row
         doc_id_counter += 1  # Increment document ID for the next document
 
-    return forward_index
+    return forward_index, data
