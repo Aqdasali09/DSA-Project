@@ -2,7 +2,6 @@
 from inverted_index import InvertedIndex
 from main import inverted_index
 import pandas as pd
-import keyboard
 from collections import defaultdict
 import re
 from fuzzywuzzy import process
@@ -98,21 +97,3 @@ class HybridSearchEngine:
 
 # Initialize hybrid search engine
 hybrid_engine = HybridSearchEngine(inverted_index, lexicon)
-
-# Search loop
-while True:
-    # Check if ESC key is pressed
-    if keyboard.is_pressed('esc'):
-        print("ESC key pressed. Exiting...")
-        break
-
-    # Take user query input
-    query = input("Enter Search Query: ")
-    query = query.lower()
-
-    # Perform hybrid search
-    final_results, ranked_results = hybrid_engine.search(query)
-
-    # Display results
-    print(f"Documents matching the query '{query}': {final_results}")
-    print(f"Ranked Results: {ranked_results}")
