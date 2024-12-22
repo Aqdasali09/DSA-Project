@@ -1,9 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from search import HybridSearchEngine, inverted_index, lexicon
+from search import HybridSearchEngine, lexicon
+from inverted_index import InvertedIndex
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS
+
+# Initialize inverted index and load barrels from CSV files
+inverted_index = InvertedIndex()
+inverted_index.load_from_barrels(r".\barrels")  # Load barrels from folder
 
 # Initialize hybrid search engine
 hybrid_engine = HybridSearchEngine(inverted_index, lexicon)

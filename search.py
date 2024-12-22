@@ -1,6 +1,5 @@
 # Search script
 from inverted_index import InvertedIndex
-from main import inverted_index
 import pandas as pd
 from collections import defaultdict
 import re
@@ -8,6 +7,9 @@ from fuzzywuzzy import process
 
 # Load lexicon
 lexicon = pd.read_csv("lexicon.csv").set_index("Term")["Word IDs"].to_dict()
+
+# Load songs data
+songs_df = pd.read_csv("songs.csv")
 
 # Hybrid Search Engine Class
 class HybridSearchEngine:
@@ -96,4 +98,6 @@ class HybridSearchEngine:
         return final_results, ranked_results
 
 # Initialize hybrid search engine
+inverted_index = InvertedIndex()
+inverted_index.load_from_barrels(r".\barrels")  # Load barrels from folder
 hybrid_engine = HybridSearchEngine(inverted_index, lexicon)

@@ -31,6 +31,13 @@ class InvertedIndex:
         """
         self.barrels.save_barrels(folder_path)
 
+    def load_from_barrels(self, folder_path):
+        """
+        Load the inverted index barrels from CSV files.
+        :param folder_path: Directory where barrel CSV files are located.
+        """
+        self.barrels.load_barrels(folder_path)
+
     def search(self, term, lexicon):
         """
         Search for a term in the inverted index using barrels.
