@@ -1,8 +1,13 @@
 import requests
 import time
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env.local
+load_dotenv(dotenv_path='.env.local')
 
 # Replace with your AssemblyAI API key
-API_KEY = "2ec767b224244a4aa2b1fd6c4c93f963"
+API_KEY = os.getenv("ASSEMBLYAI_API_KEY")
 
 # Upload audio file to AssemblyAI
 def upload_audio(file_path):
@@ -55,12 +60,3 @@ def speech_to_text(file_path):
     text = get_transcription(transcription_id)
     print("Transcription completed!")
     return text
-
-# Test the Function
-# if __name__ == "__main__":
-#     audio_file_path = "audio3.mp3"  # Replace with your audio file path
-#     try:
-#         transcript = speech_to_text(audio_file_path)
-#         print("Transcript:", transcript)
-#     except Exception as e:
-#         print("Error:", e)
