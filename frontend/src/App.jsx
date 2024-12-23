@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -28,6 +29,12 @@ function App() {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black p-4">
       <h1 className="text-4xl font-bold mb-6 text-blue-500">Search Engine</h1>
@@ -37,6 +44,7 @@ function App() {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyPress={handleKeyPress}
           placeholder="Enter search query"
           className="p-2 border border-gray-700 rounded w-full mb-2 bg-gray-800 text-white placeholder-gray-500"
         />
@@ -55,7 +63,12 @@ function App() {
 
       {isLoading && (
         <div className="flex items-center justify-center mt-4">
-          <div className="loader ease-linear rounded-full border-4 border-t-4 border-blue-500 h-12 w-12 animate-spin"></div>
+          <DotLottieReact
+            src="/assets/load.lottie"
+            loop
+            autoplay
+            className="w-24 h-24"
+          />
           <p className="ml-4 text-lg text-gray-300">Processing...</p>
         </div>
       )}

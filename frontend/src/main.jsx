@@ -1,19 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import App from './App';
 import AudioSearch from './Audio';
+import Splash from './Splash';
 import './index.css';
 
 function Main() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<Splash />} />
+        <Route path="/main" element={<App />} />
         <Route path="/audio-search" element={<AudioSearch />} />
       </Routes>
     </Router>
   );
 }
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Main />);

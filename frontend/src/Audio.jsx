@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import ModelViewer from './ModelViewer';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function AudioSearch() {
   const [isRecording, setIsRecording] = useState(false);
@@ -58,20 +60,32 @@ function AudioSearch() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black p-4">
-      <h1 className="text-4xl font-bold mb-6 text-blue-500">Audio Search</h1>
-      <button
-        onClick={isRecording ? stopRecording : startRecording}
-        className={`p-4 rounded-lg ${
-          isRecording ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
-        } text-white transition-colors mb-4`}
-        disabled={isLoading}
-      >
-        {isRecording ? 'Stop Recording' : 'Start Recording'}
-      </button>
+    <div className="min-h-screen flex flex-col items-center bg-black p-4">
+      <h1 className="text-4xl font-bold mb-6 text-blue-500 mt-4">Audio Search</h1>
+      {!results && (
+        <div className="flex flex-col items-center justify-center flex-grow w-full h-[50vh]">
+          <div className="w-full h-full">
+            <ModelViewer />
+          </div>
+          <button
+            onClick={isRecording ? stopRecording : startRecording}
+            className={`p-4 rounded-lg mt-8 ${
+              isRecording ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
+            } text-white transition-colors mb-4`}
+            disabled={isLoading}
+          >
+            {isRecording ? 'Stop Recording' : 'Start Recording'}
+          </button>
+        </div>
+      )}
       {isLoading && (
         <div className="flex items-center justify-center mt-4">
-          <div className="loader ease-linear rounded-full border-4 border-t-4 border-blue-500 h-12 w-12 animate-spin"></div>
+          <DotLottieReact
+            src="/assets/load.lottie"
+            loop
+            autoplay
+            className="w-24 h-24"
+          />
           <p className="ml-4 text-lg text-gray-300">Processing...</p>
         </div>
       )}
@@ -106,6 +120,9 @@ function AudioSearch() {
           </div>
         </div>
       )}
+      <footer className="text-xs text-gray-500 mt-8">
+        This 3d model based on <a href="https://sketchfab.com/3d-models/a-windy-day-fb78f4cc938144e6902dd5cff354d525" className="underline">"A Windy Day"</a> by <a href="https://sketchfab.com/norgeotloic" className="underline">Loïc Norgeot</a> licensed under <a href="http://creativecommons.org/licenses/by/4.0/" className="underline">CC-BY-4.0</a>
+      </footer>
     </div>
   );
 }
