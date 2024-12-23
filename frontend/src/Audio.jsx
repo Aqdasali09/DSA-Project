@@ -61,21 +61,29 @@ function AudioSearch() {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-black p-4">
-      <h1 className="text-4xl font-bold mb-6 text-blue-500 mt-4">Audio Search</h1>
+      <h1 className="text-4xl font-bold mb-6 text-white mt-4">Audio Search</h1>
       {!results && (
         <div className="flex flex-col items-center justify-center flex-grow w-full h-[50vh]">
           <div className="w-full h-full">
             <ModelViewer />
           </div>
-          <button
-            onClick={isRecording ? stopRecording : startRecording}
-            className={`p-4 rounded-lg mt-8 ${
-              isRecording ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
-            } text-white transition-colors mb-4`}
-            disabled={isLoading}
-          >
-            {isRecording ? 'Stop Recording' : 'Start Recording'}
-          </button>
+          <div className='flex flex-row items-center justify-between gap-x-[4vh]'>
+            <button
+              onClick={isRecording ? stopRecording : startRecording}
+              className={`p-4 rounded-lg mt-8 ${
+                isRecording ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
+              } text-white transition-colors mb-4`}
+              disabled={isLoading}
+            >
+              {isRecording ? 'Stop Recording' : 'Start Recording'}
+            </button>
+            <button
+              onClick={() => window.history.back()}
+              className={`bg-blue-600 hover:bg-blue-700 p-4 rounded-lg mt-8 text-white transition-colors mb-4`}
+            >
+              Go Back
+            </button>
+          </div>
         </div>
       )}
       {isLoading && (

@@ -37,8 +37,8 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 p-4 text-gray-100">
-      <h1 className="text-5xl font-bold mb-8 text-blue-400">Lyrica</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black p-4 text-gray-100">
+      <h1 className="text-5xl font-bold mb-8 text-white">Lyrica</h1>
       
       <div className="mb-6 w-full max-w-2xl">
         <div className="relative">
