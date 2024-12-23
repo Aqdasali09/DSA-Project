@@ -10,10 +10,10 @@ function Model() {
   useEffect(() => {
     if (modelRef.current) {
       gsap.to(modelRef.current.rotation, {
-        y: "+=6.28319", // 2 * Math.PI (one full rotation)
-        duration: 10,
+        y: "+=6.28319", 
+        duration: 7,
         repeat: -1,
-        ease: "none",
+        ease: "linear",
       });
     }
   }, []);
