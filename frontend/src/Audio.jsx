@@ -6,6 +6,7 @@ function AudioSearch() {
   const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const startRecording = async () => {
     try {
@@ -23,12 +24,14 @@ function AudioSearch() {
         const formData = new FormData();
         formData.append('audio', audioBlob, 'audio.webm');
 
+        setIsLoading(true);
         const response = await fetch('http://localhost:5000/transcribe', {
           method: 'POST',
           body: formData,
         });
 
         const data = await response.json();
+        setIsLoading(false);
         if (response.ok) {
           setTranscription(data.transcription);
           setResults(data);
@@ -55,17 +58,24 @@ function AudioSearch() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-      <h1 className="text-2xl font-bold mb-4">Audio Search</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
+      <h1 className="text-3xl font-bold mb-6 text-blue-600">Audio Search</h1>
       <button
         onClick={isRecording ? stopRecording : startRecording}
         className={`p-4 rounded ${
           isRecording ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'
-        } text-white transition-colors`}
+        } text-white transition-colors mb-4`}
+        disabled={isLoading}
       >
         {isRecording ? 'Stop Recording' : 'Start Recording'}
       </button>
-      {error && <p className="text-red-500">{error}</p>}
+      {isLoading && (
+        <div className="flex items-center justify-center mt-4">
+          <div className="loader ease-linear rounded-full border-4 border-t-4 border-loader h-12 w-12 animate-spin"></div>
+          <p className="ml-4 text-lg text-gray-700">Processing...</p>
+        </div>
+      )}
+      {error && <p className="text-red-500 mt-4">{error}</p>}
       {transcription && (
         <div className="mt-6 w-full max-w-2xl bg-white p-4 rounded shadow">
           <h2 className="text-lg font-semibold">Transcription:</h2>

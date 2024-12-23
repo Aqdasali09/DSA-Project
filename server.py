@@ -37,7 +37,7 @@ def transcribe():
         return jsonify({"error": "No audio file provided"}), 400
 
     audio_file = request.files['audio']
-    file_path = 'audio4.mp3'
+    file_path = 'audio.mp3'
     audio_file.save(file_path)
 
     try:
