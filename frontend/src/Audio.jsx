@@ -58,12 +58,12 @@ function AudioSearch() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold mb-6 text-blue-600">Audio Search</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-black p-4">
+      <h1 className="text-4xl font-bold mb-6 text-blue-500">Audio Search</h1>
       <button
         onClick={isRecording ? stopRecording : startRecording}
-        className={`p-4 rounded ${
-          isRecording ? 'bg-red-500 hover:bg-red-600' : 'bg-blue-500 hover:bg-blue-600'
+        className={`p-4 rounded-lg ${
+          isRecording ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'
         } text-white transition-colors mb-4`}
         disabled={isLoading}
       >
@@ -71,36 +71,39 @@ function AudioSearch() {
       </button>
       {isLoading && (
         <div className="flex items-center justify-center mt-4">
-          <div className="loader ease-linear rounded-full border-4 border-t-4 border-loader h-12 w-12 animate-spin"></div>
-          <p className="ml-4 text-lg text-gray-700">Processing...</p>
+          <div className="loader ease-linear rounded-full border-4 border-t-4 border-blue-500 h-12 w-12 animate-spin"></div>
+          <p className="ml-4 text-lg text-gray-300">Processing...</p>
         </div>
       )}
       {error && <p className="text-red-500 mt-4">{error}</p>}
       {transcription && (
-        <div className="mt-6 w-full max-w-2xl bg-white p-4 rounded shadow">
-          <h2 className="text-lg font-semibold">Transcription:</h2>
-          <pre className="mt-2 text-gray-800 whitespace-pre-wrap">{transcription}</pre>
+        <div className="mt-6 w-full max-w-2xl bg-gray-800 p-4 rounded-lg shadow-lg">
+          <h2 className="text-lg font-semibold text-blue-500">You Searched:</h2>
+          <pre className="mt-2 text-gray-300 whitespace-pre-wrap">{transcription}</pre>
         </div>
       )}
       {results && (
         <div className="w-full max-w-4xl mt-6">
-          <h2 className="text-xl font-semibold mb-4 text-blue-700">Results for "{results.query}":</h2>
+          <h2 className="text-xl font-semibold mb-4 text-blue-500">Results for "{results.query}":</h2>
           
-          <h3 className="text-lg font-semibold text-gray-800">Final Results:</h3>
-          <ul className="list-disc pl-5">
+          <h3 className="text-lg font-semibold text-blue-400">Final Results:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {results.final_results.map((result, index) => (
-              <li key={index} className="text-gray-700">{result}</li>
+              <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
+                {result}
+              </div>
             ))}
-          </ul>
+          </div>
 
-          <h3 className="text-lg font-semibold text-gray-800 mt-4">Ranked Results:</h3>
-          <ul className="list-disc pl-5">
+          <h3 className="text-lg font-semibold text-blue-400 mt-4">Ranked Results:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {results.ranked_results.map(([doc_id, score], index) => (
-              <li key={index} className="text-gray-700">
-                Document ID: {doc_id}, Score: {score}
-              </li>
+              <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
+                <p>Document ID: {doc_id}</p>
+                <p>Score: {score}</p>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>
