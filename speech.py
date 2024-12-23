@@ -57,10 +57,10 @@ def speech_to_text(file_path):
     return text
 
 # Test the Function
-if __name__ == "__main__":
-    audio_file_path = "audio1.mp3"  # Replace with your audio file path
-    try:
-        transcript = speech_to_text(audio_file_path)
-        print("Transcript:", transcript)
-    except Exception as e:
-        print("Error:", e)
+# if __name__ == "__main__":
+#     audio_file_path = "audio3.mp3"  # Replace with your audio file path
+#     try:
+#         transcript = speech_to_text(audio_file_path)
+#         print("Transcript:", transcript)
+#     except Exception as e:
+#         print("Error:", e)

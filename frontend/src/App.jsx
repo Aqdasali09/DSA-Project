@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -42,6 +43,10 @@ function App() {
           Search
         </button>
       </div>
+
+      <Link to="/audio-search" className="text-blue-500 underline mt-4">
+        Search by Audio
+      </Link>
 
       {error && <p className="text-red-500">{error}</p>}
 
