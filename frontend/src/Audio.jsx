@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import ModelViewer from './ModelViewer';
+import { useState, useEffect } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 function AudioSearch() {
@@ -9,6 +8,13 @@ function AudioSearch() {
   const [error, setError] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.9.54/build/spline-viewer.js';
+    script.type = 'module';
+    document.body.appendChild(script);
+  }, []);
 
   const startRecording = async () => {
     try {
@@ -61,11 +67,12 @@ function AudioSearch() {
 
   return (
     <div className="min-h-screen flex flex-col items-center bg-black p-4">
-      <h1 className="text-4xl font-bold mb-6 text-white mt-4">Audio Search</h1>
+      <h1 className="text-4xl font-semibold mb-6 text-white mt-4" style={{ fontFamily: 'Zen Antique Soft, serif' }}>Audio Search</h1>
       {!results && (
         <div className="flex flex-col items-center justify-center flex-grow w-full h-[50vh]">
-          <div className="w-full h-full">
-            <ModelViewer />
+          <div className="w-[50vw] h-[65vh] relative">
+            <spline-viewer loading-anim-type="spinner-small-light" interaction-prompt="none" url="https://prod.spline.design/ZVPXbznt8G-AWbk9/scene.splinecode" className="absolute inset-0 w-full h-full"></spline-viewer>
+            <div className="absolute inset-0 w-full h-full transform scale-75"></div>
           </div>
           <div className='flex flex-row items-center justify-between gap-x-[4vh]'>
             <button
@@ -112,25 +119,26 @@ function AudioSearch() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {results.final_results.map((result, index) => (
               <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
-                {result}
+                <p>Song: {result.name}</p>
+                <p>Artists: {result.artists}</p>
+                <p>Album: {result.album_name}</p>
               </div>
             ))}
           </div>
 
           <h3 className="text-lg font-semibold text-blue-400 mt-4">Ranked Results:</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {results.ranked_results.map(([doc_id, score], index) => (
+            {results.ranked_results.map(([details, score], index) => (
               <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
-                <p>Document ID: {doc_id}</p>
+                <p>Song: {details.name}</p>
+                <p>Artists: {details.artists}</p>
+                <p>Album: {details.album_name}</p>
                 <p>Score: {score}</p>
               </div>
             ))}
           </div>
         </div>
       )}
-      <footer className="text-xs text-gray-500 mt-8">
-        This 3d model based on <a href="https://sketchfab.com/3d-models/a-windy-day-fb78f4cc938144e6902dd5cff354d525" className="underline">"A Windy Day"</a> by <a href="https://sketchfab.com/norgeotloic" className="underline">Loïc Norgeot</a> licensed under <a href="http://creativecommons.org/licenses/by/4.0/" className="underline">CC-BY-4.0</a>
-      </footer>
     </div>
   );
 }

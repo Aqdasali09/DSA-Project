@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 from lexicon import preprocess_text
 
 def create_forward_index(data, searchable_fields):
@@ -26,3 +27,21 @@ def create_forward_index(data, searchable_fields):
         doc_id_counter += 1  # Increment document ID for the next document
 
     return forward_index, data
+
+def create_details_json(data, output_file):
+    """
+    Create a details.json file with the name, doc_id, artists, and album_name of each song.
+    
+    :param data: List of dictionaries containing dataset rows with doc_id assigned.
+    :param output_file: Path to the output JSON file.
+    """
+    details = []
+    for row in data:
+        details.append({
+            "name": row.get("name", "Unknown") if pd.notna(row.get("name")) else "Unknown",
+            "doc_id": row["doc_id"],
+            "artists": row.get("artists", "Unknown") if pd.notna(row.get("artists")) else "Unknown",
+            "album_name": row.get("album_name", "Unknown") if pd.notna(row.get("album_name")) else "Unknown"
+        })
+    with open(output_file, 'w') as f:
+        json.dump(details, f, indent=4)

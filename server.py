@@ -24,11 +24,15 @@ def search():
     # Perform hybrid search
     final_results, ranked_results = hybrid_engine.search(query.lower())
 
+    # Map document IDs to details
+    final_results_details = hybrid_engine.map_doc_ids_to_details(final_results)
+    ranked_results_details = hybrid_engine.map_ranked_results_to_details(ranked_results)
+
     # Return results as JSON
     return jsonify({
         "query": query,
-        "final_results": list(final_results),
-        "ranked_results": ranked_results
+        "final_results": final_results_details,
+        "ranked_results": ranked_results_details
     })
 
 @app.route('/transcribe', methods=['POST'])
@@ -47,11 +51,15 @@ def transcribe():
         # Perform hybrid search using the transcription as the query
         final_results, ranked_results = hybrid_engine.search(transcript.lower())
 
+        # Map document IDs to details
+        final_results_details = hybrid_engine.map_doc_ids_to_details(final_results)
+        ranked_results_details = hybrid_engine.map_ranked_results_to_details(ranked_results)
+
         return jsonify({
             "transcription": transcript,
             "query": transcript,
-            "final_results": list(final_results),
-            "ranked_results": ranked_results
+            "final_results": final_results_details,
+            "ranked_results": ranked_results_details
         })
     except Exception as e:
         if os.path.exists(file_path):

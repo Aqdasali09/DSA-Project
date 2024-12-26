@@ -1,0 +1,596 @@
+[
+    {
+        "name": "!",
+        "doc_id": 1,
+        "artists": "['HELLYEAH']",
+        "album_name": "UNDEN!ABLE"
+    },
+    {
+        "name": "!!",
+        "doc_id": 2,
+        "artists": "Yxngxr1",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "!!! - Interlude",
+        "doc_id": 3,
+        "artists": "['Glowie']",
+        "album_name": "Where I Belong EP"
+    },
+    {
+        "name": "!!De Repente!!",
+        "doc_id": 4,
+        "artists": "['Rosendo']",
+        "album_name": "Un Palo Al Agua (20 Grandes Canciones)"
+    },
+    {
+        "name": "!!De Repente!!",
+        "doc_id": 5,
+        "artists": "['Rosendo']",
+        "album_name": "Fuera De Lugar"
+    },
+    {
+        "name": "!!Noble Stabbings!!",
+        "doc_id": 6,
+        "artists": "Dillinger Four",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "!I'll Be Back!",
+        "doc_id": 7,
+        "artists": "Ril\u00c3\u00a8s",
+        "album_name": "!I'll Be Back!"
+    },
+    {
+        "name": "!Lost!",
+        "doc_id": 8,
+        "artists": "Ril\u00c3\u00a8s",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "!Que Vida! - Mono Version",
+        "doc_id": 9,
+        "artists": "['Love']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "!Viva el Mal Viva el Capital!",
+        "doc_id": 10,
+        "artists": "Elektroduendes",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "!liaF cipE",
+        "doc_id": 11,
+        "artists": "One Morning Left",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\" \"",
+        "doc_id": 12,
+        "artists": "['Breadwinner']",
+        "album_name": "Burner"
+    },
+    {
+        "name": "\" La Traviata \" : Amami Alfredo (Act II) - Digitally Remastered",
+        "doc_id": 13,
+        "artists": "Maria Callas",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\" R.I.P \"",
+        "doc_id": 14,
+        "artists": "Ram-Zet",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"...Because All Suffering Is Sweet to Me...\"",
+        "doc_id": 15,
+        "artists": "['Envy On The Coast']",
+        "album_name": "Lucy Gray"
+    },
+    {
+        "name": "\"40\"",
+        "doc_id": 16,
+        "artists": "['U2']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"40\" - Live",
+        "doc_id": 17,
+        "artists": "['U2']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"40\" - Remastered 2008",
+        "doc_id": 18,
+        "artists": "['U2']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"40\" - Remastered 2008",
+        "doc_id": 19,
+        "artists": "['U2']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"40\" - Songs Of Surrender",
+        "doc_id": 20,
+        "artists": "['U2']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"42\" - From SR3MM",
+        "doc_id": 21,
+        "artists": "Rae Sremmurd",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"45\"",
+        "doc_id": 22,
+        "artists": "['The Gaslight Anthem']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"99\"",
+        "doc_id": 23,
+        "artists": "['Barns Courtney']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"A Flair for the Dramatic...\"",
+        "doc_id": 24,
+        "artists": "['Beth Malone', 'Roberta Colindrez', 'Emily Skeggs', 'Michael Cerveris', 'Sydney Lucas']",
+        "album_name": "Fun Home (A New Broadway Musical)"
+    },
+    {
+        "name": "\"A Lovely Night\"",
+        "doc_id": 25,
+        "artists": "Laura Osnes",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"A Viradouro Vira O Jogo\"",
+        "doc_id": 26,
+        "artists": "Dominguinhos Do Estacio",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"A virgin\" - Act One",
+        "doc_id": 27,
+        "artists": "Catherine Zeta-Jones",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"A\" You're Adorable",
+        "doc_id": 28,
+        "artists": "Brian Hyland",
+        "album_name": "The Bashful Blond"
+    },
+    {
+        "name": "\"A\" You're Adorable",
+        "doc_id": 29,
+        "artists": "['Brian Hyland']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"A\" Your Adorable",
+        "doc_id": 30,
+        "artists": "Diana Panton",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"A\"\"I\" Wo Atsumete",
+        "doc_id": 31,
+        "artists": "WEAVER",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Aiight\"",
+        "doc_id": 32,
+        "artists": "BJ The Chicago Kid",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Amapola\"",
+        "doc_id": 33,
+        "artists": "Pl\u00c3\u00a1cido Domingo",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Amor ti vieta\"",
+        "doc_id": 34,
+        "artists": "Umberto Giordano",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Are We Taping Now?\"",
+        "doc_id": 35,
+        "artists": "Janis Joplin",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Are You Running Away from Me?\"",
+        "doc_id": 36,
+        "artists": "['Judy Kuhn', 'Ryan Silverman']",
+        "album_name": "Passion (2013 New York Cast Recording)"
+    },
+    {
+        "name": "\"B\" Movie Box Car Blues - Live",
+        "doc_id": 37,
+        "artists": "['The Blues Brothers', 'Joe Gastwirt']",
+        "album_name": "Briefcase Full of Blues"
+    },
+    {
+        "name": "\"BOP\"",
+        "doc_id": 38,
+        "artists": "['CJ']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"BabyRock\" Rock",
+        "doc_id": 39,
+        "artists": "['Clorofila']",
+        "album_name": "Corridos Urbanos"
+    },
+    {
+        "name": "\"Beer Beer, Truck Truck\"",
+        "doc_id": 40,
+        "artists": "George Birge",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Blind\"",
+        "doc_id": 41,
+        "artists": "['SOAK']",
+        "album_name": "Before We Forgot How To Dream"
+    },
+    {
+        "name": "\"Blue Flame\" (Interlude)",
+        "doc_id": 42,
+        "artists": "Big K.R.I.T.",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Bluejays and Cardinals\"",
+        "doc_id": 43,
+        "artists": "The Mountain Goats",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Boom\"",
+        "doc_id": 44,
+        "artists": "MY FIRST STORY",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Btw, That Untitled Song On Your Mixtape Was For You. I Wrote It When I Missed You.\"",
+        "doc_id": 45,
+        "artists": "Suis La Lune",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Btw, That Untitled Song on Your Mixtape Was for You. I Wrote It When I Missed You.\"",
+        "doc_id": 46,
+        "artists": "Suis La Lune",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"C\" IS FOR COOKIE",
+        "doc_id": 47,
+        "artists": "Little Apple Band",
+        "album_name": "The Favorite Songs Of Sesame Street"
+    },
+    {
+        "name": "\"C\" Is For Cookie",
+        "doc_id": 48,
+        "artists": "['Little Apple Band']",
+        "album_name": "Muppet Street (Favorite Songs from The Muppets and Sesame Street)"
+    },
+    {
+        "name": "\"C\" Is for Cookie",
+        "doc_id": 49,
+        "artists": "Little Apple Band",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"C\" is for Cookie",
+        "doc_id": 50,
+        "artists": "['Sesame Street']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"C\" is for Cookie",
+        "doc_id": 51,
+        "artists": "Little Apple Band",
+        "album_name": "Sesame Street and Friends"
+    },
+    {
+        "name": "\"Candances\"",
+        "doc_id": 52,
+        "artists": "Quinho",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Cassius\" Love Vs. \"Sonny\" Wilson (Mono)",
+        "doc_id": 53,
+        "artists": "['The Beach Boys']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Cassius\" Love Vs. \"Sonny\" Wilson - Remastered 2001",
+        "doc_id": 54,
+        "artists": "['The Beach Boys']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Champagner\"-Medley - Live",
+        "doc_id": 55,
+        "artists": "['Udo J\u00c3\u00bcrgens']",
+        "album_name": "Es lebe das Laster - UDO Live"
+    },
+    {
+        "name": "\"Christ unser Herr zum Jordan kam\" BWV 7: Recitative (Tenor): \"Dies hat Gott klar\"",
+        "doc_id": 56,
+        "artists": "['Johann Sebastian Bach', 'Amsterdam Baroque Orchestra', 'Amsterdam Baroque Choir', 'Ton Koopman']",
+        "album_name": "J.S. Bach: Cantatas Vol. 11"
+    },
+    {
+        "name": "\"Clueless in New York...\"",
+        "doc_id": 57,
+        "artists": "['Beth Malone', 'Sydney Lucas', 'Michael Cerveris']",
+        "album_name": "Fun Home (A New Broadway Musical)"
+    },
+    {
+        "name": "\"Contemplate This on the Tree of Woe.\"",
+        "doc_id": 58,
+        "artists": "Dillinger Four",
+        "album_name": "C I V I L W A R"
+    },
+    {
+        "name": "\"DEVILS NEVER CRY\"(\u00e3\u201a\u00b9\u00e3\u201a\u00bf\u00e3\u0192\u0192\u00e3\u0192\u2022\u00e3\u0192\u00ad\u00e3\u0192\u00bc\u00e3\u0192\u00ab)",
+        "doc_id": 59,
+        "artists": "['Capcom Sound Team']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"De Lambida Em Lambida, A Tijuca D\u00c3\u00a1 Um Click Na Avenida\"",
+        "doc_id": 60,
+        "artists": "Wantuir Cardeal",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Dearly Departed\" - Live from Spotify Sxsw 2014 (feat. Esme Patterson)",
+        "doc_id": 61,
+        "artists": "['Shakey Graves']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Depuis le jour\"",
+        "doc_id": 62,
+        "artists": "Gustave Charpentier",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Der H\u00c3\u00b6lle Rache kocht in meinem Herzen\"",
+        "doc_id": 63,
+        "artists": "Wolfgang Amadeus Mozart",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"E lucevan le stelle\"",
+        "doc_id": 64,
+        "artists": "['Luciano Pavarotti']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"E\" Train",
+        "doc_id": 65,
+        "artists": "['Jonny Lang']",
+        "album_name": "Smokin"
+    },
+    {
+        "name": "\"Either He's Dead or My Watch Has Stopped\"",
+        "doc_id": 66,
+        "artists": "Onsind",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"El Kofeyye Arabeyye\" (feat. M-1 of Dead Prez)",
+        "doc_id": 67,
+        "artists": "Shadia Mansour",
+        "album_name": "El Kofeyye Arabeyye"
+    },
+    {
+        "name": "\"Eternal\"",
+        "doc_id": 68,
+        "artists": "['Bone Thugs-N-Harmony']",
+        "album_name": "E. 1999 Eternal"
+    },
+    {
+        "name": "\"Eternal\"",
+        "doc_id": 69,
+        "artists": "['Bone Thugs-N-Harmony']",
+        "album_name": "E. 1999 Eternal"
+    },
+    {
+        "name": "\"Eungenio\" Salvador Dali",
+        "doc_id": 70,
+        "artists": "['Mecano']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"F\"",
+        "doc_id": 71,
+        "artists": "['MAXIMUM THE HORMONE']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Farewell\" Symphony",
+        "doc_id": 72,
+        "artists": "['Deerhoof']",
+        "album_name": "Future Teenage Cave Artists"
+    },
+    {
+        "name": "\"Farewell\" Symphony",
+        "doc_id": 73,
+        "artists": "Deerhoof",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Filthy\"",
+        "doc_id": 74,
+        "artists": "Ayron Jones",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"For Frodo\" - feat. Ben del Maestro",
+        "doc_id": 75,
+        "artists": "Howard Shore",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Forbidden\"",
+        "doc_id": 76,
+        "artists": "D'espairsRay",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"From My Cold Dead Hands\"",
+        "doc_id": 77,
+        "artists": "Remembering Never",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Fuck Me\" Eyes",
+        "doc_id": 78,
+        "artists": "['Millionaires']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Get a Shot of the Refrigerator\"",
+        "doc_id": 79,
+        "artists": "Stereolab",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Gustave! Gustave!...\"",
+        "doc_id": 80,
+        "artists": "Andrew Lloyd Webber",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"H\" Friend",
+        "doc_id": 81,
+        "artists": "['Black Devil Disco Club']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Have It Your Way.\"",
+        "doc_id": 82,
+        "artists": "['Mario Cantone']",
+        "album_name": "Assassins (The Broadway Cast Recording)"
+    },
+    {
+        "name": "\"He Was Tall\"",
+        "doc_id": 83,
+        "artists": "Laura Osnes",
+        "album_name": "Rodgers + Hammerstein's Cinderella (Original Broadway Cast Recording)"
+    },
+    {
+        "name": "\"Here I am\"",
+        "doc_id": 84,
+        "artists": "HIGH and MIGHTY COLOR",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Heroes\" - 2017 Remastered Version",
+        "doc_id": 85,
+        "artists": "David Bowie",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Heroes\" - Klax Mix Radio Edit",
+        "doc_id": 86,
+        "artists": "['David Bowie', 'Klax']",
+        "album_name": "\"Heroes\" (Klax Remix)"
+    },
+    {
+        "name": "\"Heroes\" - Live, Glastonbury, 2000",
+        "doc_id": 87,
+        "artists": "['David Bowie']",
+        "album_name": "Glastonbury 2000 (Live)"
+    },
+    {
+        "name": "\"Heroes\" / \"Helden\" - 2001 Remaster",
+        "doc_id": 88,
+        "artists": "['David Bowie']",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"I Ain't Got No\"",
+        "doc_id": 89,
+        "artists": "Wolfmother",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"I Am a Terrifying and Imposing Figure...!\"",
+        "doc_id": 90,
+        "artists": "['Becky Ann Baker', \"Denis O'Hare\", 'James Clow', 'Merwin Foard']",
+        "album_name": "Assassins (The Broadway Cast Recording)"
+    },
+    {
+        "name": "\"I Could Carve a Better Man Out of a Banana\"",
+        "doc_id": 91,
+        "artists": "Onsind",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"I Decided Not To Do Them\"",
+        "doc_id": 92,
+        "artists": "['Latterman']",
+        "album_name": "We Are Still Alive"
+    },
+    {
+        "name": "\"I Leapt out of the Closet...\"",
+        "doc_id": 93,
+        "artists": "['Beth Malone', 'Sydney Lucas', 'Michael Cerveris', 'Judy Kuhn']",
+        "album_name": "Fun Home (A New Broadway Musical)"
+    },
+    {
+        "name": "\"I Was Born on a Pirate Ship! \" (Holdyourtongue)",
+        "doc_id": 94,
+        "artists": "Dillinger Four",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"I'll Take What's in the Box Monty\"",
+        "doc_id": 95,
+        "artists": "The Lawrence Arms",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Impossible\"",
+        "doc_id": 96,
+        "artists": "Victoria Clark",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"In Loving Memory\"",
+        "doc_id": 97,
+        "artists": "Secrets",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"In My Own Little Corner\"",
+        "doc_id": 98,
+        "artists": "Laura Osnes",
+        "album_name": "Unknown"
+    },
+    {
+        "name": "\"Is This My Fate?\" He Asked Them",
+        "doc_id": 99,
+        "artists": "Story Of The Year",
+        "album_name": "Unknown"
+    }
+]
