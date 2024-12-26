@@ -4,9 +4,15 @@ import pandas as pd
 from collections import defaultdict
 import re
 from fuzzywuzzy import process
+import json
 
 # Load lexicon
 lexicon = pd.read_csv("lexicon.csv").set_index("Term")["Word IDs"].to_dict()
+
+# Load details.json
+with open("details.json", "r") as f:
+    details = json.load(f)
+doc_id_to_details = {item["doc_id"]: item for item in details}
 
 # Hybrid Search Engine Class
 class HybridSearchEngine:
@@ -93,6 +99,14 @@ class HybridSearchEngine:
         # Combine results
         final_results = phrase_results | boolean_results
         return final_results, ranked_results
+
+    def map_doc_ids_to_details(self, doc_ids):
+        """Map document IDs to details using details.json."""
+        return [doc_id_to_details.get(doc_id, {"name": "Unknown", "artists": "Unknown", "album_name": "Unknown"}) for doc_id in doc_ids]
+
+    def map_ranked_results_to_details(self, ranked_results):
+        """Map ranked results to details using details.json."""
+        return [(doc_id_to_details.get(doc_id, {"name": "Unknown", "artists": "Unknown", "album_name": "Unknown"}), score) for doc_id, score in ranked_results]
 
 # Initialize hybrid search engine
 inverted_index = InvertedIndex()
