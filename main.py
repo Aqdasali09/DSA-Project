@@ -1,7 +1,7 @@
 # Main indexing script
 import pandas as pd
 from lexicon import create_lexicon
-from forward_index import create_forward_index
+from forward_index import create_forward_index, create_details_json
 from inverted_index import InvertedIndex
 
 # Define searchable fields
@@ -24,6 +24,9 @@ def preprocess_data():
     forward_index_df = pd.DataFrame(list(forward_index.items()), columns=["Document ID", "Terms"])
     forward_index_df.to_csv("forward_index.csv", index=False)
 
+    # Create and save details.json
+    create_details_json(updated_data, "details.json")
+
     # Generate and save inverted index with barrels
     inverted_index = InvertedIndex()
     inverted_index.build(forward_index, lexicon)
@@ -33,6 +36,7 @@ def preprocess_data():
     inverted_index.save_to_csv("inverted_index.csv")
 
     print("Lexicon, forward indexing, inverted indexing, and barrels have been saved to CSV files.")
+    print("Details have been saved to details.json.")
 
 if __name__ == "__main__":
     preprocess_data()
