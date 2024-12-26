@@ -38,7 +38,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black p-4 text-gray-100">
-      <h1 className="text-5xl font-bold mb-8 text-white">Lyrica</h1>
+      <h1 className="text-5xl font-bold mb-8 text-white" style={{ fontFamily: 'Zen Antique Soft, serif' }}>Lyrica</h1>
       
       <div className="mb-6 w-full max-w-2xl">
         <div className="relative">
@@ -73,51 +73,39 @@ function App() {
             src="/assets/load.lottie"
             loop
             autoplay
-            className="w-32 h-32"
+            className="w-24 h-24"
           />
-          <p className="ml-4 text-xl text-blue-300 animate-pulse">Processing your request...</p>
+          <p className="ml-4 text-lg text-gray-300">Processing...</p>
         </div>
       )}
 
-      {error && (
-        <div className="mt-8 bg-red-900 border border-red-700 rounded-lg p-4">
-          <p className="text-red-300 text-lg">{error}</p>
-        </div>
-      )}
+      {error && <p className="text-red-500 mt-4">{error}</p>}
 
       {results && (
-        <div className="w-full max-w-6xl mt-10">
-          <h2 className="text-2xl font-semibold mb-6 text-blue-400">Results for "{results.query}"</h2>
+        <div className="w-full max-w-4xl mt-6">
+          <h2 className="text-xl font-semibold mb-4 text-blue-500">Results for "{results.query}":</h2>
           
-          <div className="mb-8 bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-            <div className="bg-gray-700 px-6 py-4">
-              <h3 className="text-xl text-blue-300">Final Results</h3>
-            </div>
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {results.final_results.map((result, index) => (
-                  <div key={index} className="bg-gray-700 p-4 rounded-lg shadow">
-                    <p className="text-gray-300">{result}</p>
-                  </div>
-                ))}
+          <h3 className="text-lg font-semibold text-blue-400">Final Results:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {results.final_results.map((result, index) => (
+              <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
+                <p>Song: {result.name}</p>
+                <p>Artists: {result.artists}</p>
+                <p>Album: {result.album_name}</p>
               </div>
-            </div>
+            ))}
           </div>
 
-          <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-            <div className="bg-gray-700 px-6 py-4">
-              <h3 className="text-xl text-blue-300">Ranked Results</h3>
-            </div>
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {results.ranked_results.map(([doc_id, score], index) => (
-                  <div key={index} className="bg-gray-700 p-4 rounded-lg shadow">
-                    <p className="text-gray-300 font-semibold">Document ID: {doc_id}</p>
-                    <p className="text-gray-400">Score: {score}</p>
-                  </div>
-                ))}
+          <h3 className="text-lg font-semibold text-blue-400 mt-4">Ranked Results:</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {results.ranked_results.map(([details, score], index) => (
+              <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
+                <p>Song: {details.name}</p>
+                <p>Artists: {details.artists}</p>
+                <p>Album: {details.album_name}</p>
+                <p>Score: {score}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       )}
@@ -126,4 +114,3 @@ function App() {
 }
 
 export default App;
-
