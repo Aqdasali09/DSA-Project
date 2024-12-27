@@ -38,6 +38,7 @@ def create_details_json(data, output_file):
     details = []
     for row in data:
         details.append({
+            "spotify_id":row.get("id"), 
             "name": row.get("name", "Unknown") if pd.notna(row.get("name")) else "Unknown",
             "doc_id": row["doc_id"],
             "artists": row.get("artists", "Unknown") if pd.notna(row.get("artists")) else "Unknown",
