@@ -119,21 +119,20 @@ function AudioSearch() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {results.final_results.map((result, index) => (
               <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
-                <p>Song: {result.name}</p>
-                <p>Artists: {result.artists}</p>
-                <p>Album: {result.album_name}</p>
+                <h4 className="text-xl font-bold text-white mb-2">{result.name}</h4>
+                <p className="text-sm text-gray-400">Artists: {result.artists}</p>
+                <p className="text-sm text-gray-400">Album: {result.album_name}</p>
               </div>
             ))}
           </div>
 
           <h3 className="text-lg font-semibold text-blue-400 mt-4">Ranked Results:</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {results.ranked_results.map(([details, score], index) => (
+            {results.ranked_results.map(([details], index) => (
               <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
-                <p>Song: {details.name}</p>
-                <p>Artists: {details.artists}</p>
-                <p>Album: {details.album_name}</p>
-                <p>Score: {score}</p>
+                <h4 className="text-xl font-bold text-white mb-2">{details.name}</h4>
+                <p className="text-sm text-gray-400">Artists: {details.artists}</p>
+                <p className="text-sm text-gray-400">Album: {details.album_name}</p>
               </div>
             ))}
           </div>
