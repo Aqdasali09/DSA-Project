@@ -67,7 +67,7 @@ function AudioSearch() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-black p-4 relative">
+    <div className="min-h-screen flex flex-col justify-center items-center bg-black p-4 relative">
       <Navbar /> {/* Include the Navbar component */}
       <h1 className="text-4xl font-semibold mb-6 text-white mt-4" style={{ fontFamily: 'Zen Antique Soft, serif' }}>Audio Search</h1>
       {!results && (
