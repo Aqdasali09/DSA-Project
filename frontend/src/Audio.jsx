@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import Navbar from './components/navbar'; // Import the Navbar component
 
 function AudioSearch() {
   const [isRecording, setIsRecording] = useState(false);
@@ -66,7 +67,8 @@ function AudioSearch() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-black p-4">
+    <div className="min-h-screen flex flex-col items-center bg-black p-4 relative">
+      <Navbar /> {/* Include the Navbar component */}
       <h1 className="text-4xl font-semibold mb-6 text-white mt-4" style={{ fontFamily: 'Zen Antique Soft, serif' }}>Audio Search</h1>
       {!results && (
         <div className="flex flex-col items-center justify-center flex-grow w-full h-[50vh]">
@@ -94,7 +96,7 @@ function AudioSearch() {
         </div>
       )}
       {isLoading && (
-        <div className="flex items-center justify-center mt-4">
+        <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75">
           <DotLottieReact
             src="/assets/load.lottie"
             loop
@@ -122,6 +124,17 @@ function AudioSearch() {
                 <h4 className="text-xl font-bold text-white mb-2">{result.name}</h4>
                 <p className="text-sm text-gray-400">Artists: {result.artists}</p>
                 <p className="text-sm text-gray-400">Album: {result.album_name}</p>
+                {details.spotify_id && (
+                  <div className="mt-4">
+                    <iframe
+                      src={`https://open.spotify.com/embed/track/${details.spotify_id.replace(/['"]+/g, '').trim()}`}
+                      width="100%"
+                      height="380"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      className="rounded-md"
+                    ></iframe>
+                  </div>
+                )}\
               </div>
             ))}
           </div>
@@ -133,6 +146,17 @@ function AudioSearch() {
                 <h4 className="text-xl font-bold text-white mb-2">{details.name}</h4>
                 <p className="text-sm text-gray-400">Artists: {details.artists}</p>
                 <p className="text-sm text-gray-400">Album: {details.album_name}</p>
+                {details.spotify_id && (
+                  <div className="mt-4">
+                    <iframe
+                      src={`https://open.spotify.com/embed/track/${details.spotify_id.replace(/['"]+/g, '').trim()}`}
+                      width="100%"
+                      height="380"
+                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                      className="rounded-md"
+                    ></iframe>
+                  </div>
+                )}
               </div>
             ))}
           </div>

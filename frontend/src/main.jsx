@@ -5,6 +5,7 @@ import App from './App';
 import AudioSearch from './Audio';
 import Splash from './Splash';
 import './index.css';
+import AboutPage from './About';
 
 function Main() {
   return (
@@ -13,6 +14,7 @@ function Main() {
         <Route path="/" element={<Splash />} />
         <Route path="/main" element={<App />} />
         <Route path="/audio-search" element={<AudioSearch />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </Router>
   );
