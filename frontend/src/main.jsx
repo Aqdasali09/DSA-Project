@@ -6,6 +6,7 @@ import AudioSearch from './Audio';
 import Splash from './Splash';
 import './index.css';
 import AboutPage from './About';
+import AddSongForm from './form';
 
 function Main() {
   return (
@@ -15,6 +16,7 @@ function Main() {
         <Route path="/main" element={<App />} />
         <Route path="/audio-search" element={<AudioSearch />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path='/form' element={<AddSongForm />} />
       </Routes>
     </Router>
   );
