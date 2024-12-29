@@ -9,7 +9,7 @@ SEARCHABLE_FIELDS = ["lyrics", "album_name", "artists", "name"]
 
 def preprocess_data():
     # Load dataset
-    file_path = "songs.csv"
+    file_path = "songs10.csv"
     data = pd.read_csv(file_path).to_dict(orient="records")
 
     # Generate lexicon and forward index
