@@ -102,11 +102,11 @@ class HybridSearchEngine:
 
     def map_doc_ids_to_details(self, doc_ids):
         """Map document IDs to details using details.json."""
-        return [doc_id_to_details.get(doc_id, {"name": "Unknown", "artists": "Unknown", "album_name": "Unknown"}) for doc_id in doc_ids]
+        return [doc_id_to_details.get(doc_id, {"id":"unknown","name": "Unknown", "artists": "Unknown", "album_name": "Unknown"}) for doc_id in doc_ids]
 
     def map_ranked_results_to_details(self, ranked_results):
         """Map ranked results to details using details.json."""
-        return [(doc_id_to_details.get(doc_id, {"name": "Unknown", "artists": "Unknown", "album_name": "Unknown"}), score) for doc_id, score in ranked_results]
+        return [(doc_id_to_details.get(doc_id, {"id":"unknown","name": "Unknown", "artists": "Unknown", "album_name": "Unknown"}), score) for doc_id, score in ranked_results]
 
 # Initialize hybrid search engine
 inverted_index = InvertedIndex()

@@ -1,9 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
-from search import HybridSearchEngine, lexicon
+from search import HybridSearchEngine, lexicon,doc_id_to_details
 from inverted_index import InvertedIndex
 from speech import speech_to_text
+import json
+import csv
+from lexicon import preprocess_text
+import pandas as pd
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS
@@ -17,6 +22,7 @@ hybrid_engine = HybridSearchEngine(inverted_index, lexicon)
 
 @app.route('/search')
 def search():
+    hybrid_engine = HybridSearchEngine(inverted_index, lexicon)
     query = request.args.get('query', '')
     if not query:
         return jsonify({"error": "No query provided"}), 400
@@ -34,6 +40,121 @@ def search():
         "final_results": final_results_details,
         "ranked_results": ranked_results_details
     })
+@app.route('/add_document', methods=['POST'])
+def add_document():
+    try:
+        # Step 1: Parse request data
+        data = request.json
+        required_fields = ["id", "name", "album_name", "artists", "lyrics"]
+        if not all(field in data for field in required_fields):
+            return jsonify({"error": f"Missing required fields. Required: {required_fields}"}), 400
+
+        # Step 2: Append to songs.csv
+        csv_file = "songs.csv"
+        new_song_data = {
+            "id": data["id"],
+            "name": data["name"],
+            "album_name": data["album_name"],
+            "artists": data["artists"],
+            # Optional fields with default values
+            "danceability": float(data.get("danceability", 0.0)),
+            "energy": float(data.get("energy", 0.0)),
+            "key": int(data.get("key", 0)),
+            "loudness": float(data.get("loudness", 0.0)),
+            "mode": int(data.get("mode", 0)),
+            "speechiness": float(data.get("speechiness", 0.0)),
+            "acousticness": float(data.get("acousticness", 0.0)),
+            "instrumentalness": float(data.get("instrumentalness", 0.0)),
+            "liveness": float(data.get("liveness", 0.0)),
+            "valence": float(data.get("valence", 0.0)),
+            "tempo": float(data.get("tempo", 0.0)),
+            "duration_ms": int(data.get("duration_ms", 0)),
+            "lyrics": data["lyrics"]
+        }
+
+        with open(csv_file, mode='a', newline='', encoding='utf-8') as file:
+            writer = csv.DictWriter(file, fieldnames=new_song_data.keys())
+            writer.writerow(new_song_data)
+
+        # Step 3: Update the Lexicon
+        tokens = preprocess_text(data["lyrics"] + " " + data["name"] + " " + data["album_name"] + " " + data["artists"])
+        new_tokens = [token for token in tokens if token not in lexicon]
+
+        for token in new_tokens:
+            lexicon[token] = len(lexicon) + 1
+
+        # Save updated lexicon to CSV
+        pd.DataFrame(list(lexicon.items()), columns=["Term", "Word IDs"]).to_csv("lexicon.csv", index=False)
+
+        # Step 4: Update Forward Index
+        forward_index_file = "forward_index.csv"
+        forward_index_df = pd.read_csv(forward_index_file)
+        new_doc_id = int(forward_index_df["Document ID"].max() + 1)
+
+        # Create a set of unique terms from the tokens
+        unique_terms = set(tokens)
+
+        # Add the new row with terms as a string and document ID
+        new_row = pd.DataFrame([{"Document ID": new_doc_id, "Terms": str(list(unique_terms))}])
+        forward_index_df = pd.concat([forward_index_df, new_row], ignore_index=True)
+        forward_index_df.to_csv(forward_index_file, index=False)
+
+        # Step 5: Update Inverted Index
+        inverted_index_dict = {}
+
+        for term in unique_terms:
+            word_id = lexicon.get(term)
+            if word_id is not None:
+                inverted_index.barrels.add_to_barrel(term, word_id, {new_doc_id})
+                if term not in inverted_index_dict:
+                    inverted_index_dict[term] = set()
+                inverted_index_dict[term].add(new_doc_id)
+
+        inverted_index.save_to_barrels("barrels")
+
+        # Step 6: Save the inverted index to CSV
+        inverted_index_csv_file = "inverted_index.csv"
+        inverted_index_rows = [{"Term": term, "Document IDs": ",".join(map(str, sorted(doc_ids)))} for term, doc_ids in inverted_index_dict.items()]
+        inverted_index_df = pd.DataFrame(inverted_index_rows)
+        inverted_index_df["Document IDs"] = inverted_index_df["Document IDs"].apply(lambda x: '"' + x + '"')
+        inverted_index_df.to_csv(inverted_index_csv_file, index=False)
+
+        # Step 7: Update details.json
+        details_file = "details.json"
+        new_details = {
+            "spotify_id": data["id"],
+            "name": data["name"],
+            "doc_id": new_doc_id,
+            "artists": data["artists"],
+            "album_name": data["album_name"],
+        }
+
+        try:
+            with open(details_file, "r", encoding="utf-8") as file:
+                details_data = json.load(file)
+        except FileNotFoundError:
+            details_data = []
+
+        details_data.append(new_details)
+
+        # Ensure JSON serializability
+        for item in details_data:
+            for key, value in item.items():
+                if isinstance(value, (np.int64, np.float64)):
+                    item[key] = int(value) if isinstance(value, np.int64) else float(value)
+
+        with open(details_file, "w", encoding="utf-8") as file:
+            json.dump(details_data, file, ensure_ascii=False, indent=4)
+
+        # Update the in-memory mapping of document IDs to details
+        # Directly update doc_id_to_details in memory
+        doc_id_to_details[new_doc_id] = new_details
+
+        # Return success message with the new document ID
+        return jsonify({"message": "Document added successfully", "doc_id": new_doc_id}), 200
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/transcribe', methods=['POST'])
 def transcribe():
