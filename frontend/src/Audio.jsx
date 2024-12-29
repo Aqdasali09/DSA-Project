@@ -9,6 +9,8 @@ function AudioSearch() {
   const [error, setError] = useState(null);
   const [mediaRecorder, setMediaRecorder] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const resultsPerPage = 6;
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -66,8 +68,12 @@ function AudioSearch() {
     }
   };
 
+  const paginatedResults = results
+    ? results.ranked_results.slice((currentPage - 1) * resultsPerPage, currentPage * resultsPerPage)
+    : [];
+
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-black p-4 relative">
+    <div className="min-h-screen flex flex-col items-center bg-black p-4 relative">
       <Navbar /> {/* Include the Navbar component */}
       <h1 className="text-4xl font-semibold mb-6 text-white mt-4" style={{ fontFamily: 'Zen Antique Soft, serif' }}>Audio Search</h1>
       {!results && (
@@ -119,29 +125,7 @@ function AudioSearch() {
           
           <h3 className="text-lg font-semibold text-blue-400">Final Results:</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {results.final_results.map((result, index) => (
-              <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
-                <h4 className="text-xl font-bold text-white mb-2">{result.name}</h4>
-                <p className="text-sm text-gray-400">Artists: {result.artists}</p>
-                <p className="text-sm text-gray-400">Album: {result.album_name}</p>
-                {details.spotify_id && (
-                  <div className="mt-4">
-                    <iframe
-                      src={`https://open.spotify.com/embed/track/${details.spotify_id.replace(/['"]+/g, '').trim()}`}
-                      width="100%"
-                      height="380"
-                      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                      className="rounded-md"
-                    ></iframe>
-                  </div>
-                )}\
-              </div>
-            ))}
-          </div>
-
-          <h3 className="text-lg font-semibold text-blue-400 mt-4">Ranked Results:</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {results.ranked_results.map(([details], index) => (
+            {paginatedResults.map(([details], index) => (
               <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg text-gray-300">
                 <h4 className="text-xl font-bold text-white mb-2">{details.name}</h4>
                 <p className="text-sm text-gray-400">Artists: {details.artists}</p>
@@ -159,6 +143,27 @@ function AudioSearch() {
                 )}
               </div>
             ))}
+          </div>
+
+          <div className="flex justify-between mt-4">
+            <button
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <button
+              onClick={() =>
+                setCurrentPage((prev) =>
+                  Math.min(prev + 1, Math.ceil(results.ranked_results.length / resultsPerPage))
+                )
+              }
+              disabled={currentPage === Math.ceil(results.ranked_results.length / resultsPerPage)}
+              className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-600 disabled:opacity-50"
+            >
+              Next
+            </button>
           </div>
         </div>
       )}
