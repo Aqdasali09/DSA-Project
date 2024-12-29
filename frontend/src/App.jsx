@@ -45,7 +45,7 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black p-4 text-gray-100 relative">
-      <Navbar /> {/* Include the Navbar component */}
+      <Navbar />
       <div className="flex flex-col items-center justify-center flex-grow w-full">
         <h1 className="text-5xl font-bold mb-8 text-white" style={{ fontFamily: 'Zen Antique Soft, serif' }}>Lyrica</h1>
         
