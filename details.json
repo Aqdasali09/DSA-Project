@@ -152,5 +152,40 @@
         "doc_id": 23,
         "artists": "Test Artist",
         "album_name": "Test Album"
+    },
+    {
+        "spotify_id": "4VQH4VluDUOsOuDxccTeyN",
+        "name": "Sanctuary",
+        "doc_id": 24,
+        "artists": "Joji",
+        "album_name": "Sanctuary - Single"
+    },
+    {
+        "spotify_id": "2plbrEY59IikOBgBGLjaoe",
+        "name": "Die With a Smile",
+        "doc_id": 25,
+        "artists": "Bruno Mars",
+        "album_name": "Single"
+    },
+    {
+        "spotify_id": "5vNRhkKd0yEAg8suGBpjeY",
+        "name": "APT",
+        "doc_id": 26,
+        "artists": "Bruno Mars, Rose",
+        "album_name": "Single"
+    },
+    {
+        "spotify_id": "5G2f63n7IPVPPjfNIGih7Q",
+        "name": "Taste",
+        "doc_id": 27,
+        "artists": "Bruno Mars",
+        "album_name": "Single"
+    },
+    {
+        "spotify_id": "1R0a2iXumgCiFb7HEZ7gUE",
+        "name": "Don't Blame Me",
+        "doc_id": 28,
+        "artists": "Taylor Swift",
+        "album_name": "reputation"
     }
 ]

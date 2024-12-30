@@ -76,6 +76,7 @@ class HybridSearchEngine:
     def fuzzy_match(self, term, threshold=80):
         """Fuzzy match a term to the closest term in the lexicon."""
         best_match = process.extractOne(term, self.lexicon.keys())
+        
         return best_match[0] if best_match and best_match[1] >= threshold else term
 
     def search(self, query):
